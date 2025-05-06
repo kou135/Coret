@@ -23,28 +23,32 @@ docker compose exec app sh (appコンテナに入る)
 env.ファイルの追加と書き換え  
 .env.exampleをコピーして複製  
 .envにファイル名を変更  
-src > .env の内容を以下のように書き換える  
- DB_CONNECTION=mysql
- DB_HOST=mysql
- DB_PORT=3306
- DB_DATABASE=website
- DB_USERNAME=posse
- DB_PASSWORD=password
+src > .env の内容を以下のように書き換える    
+ DB_CONNECTION=mysql  
+ DB_HOST=mysql  
+ DB_PORT=3306  
+ DB_DATABASE=website  
+ DB_USERNAME=posse  
+ DB_PASSWORD=password  
  
- MAIL_MAILER=smtp
- MAIL_HOST=mailpit
- MAIL_PORT=1025
- MAIL_USERNAME=null
- MAIL_PASSWORD=null
- MAIL_ENCRYPTION=null
- MAIL_FROM_ADDRESS="coret@example.com"
- MAIL_FROM_NAME="Coret"
+
+ MAIL_MAILER=smtp  
+ MAIL_HOST=mailpit  
+ MAIL_PORT=1025  
+ MAIL_USERNAME=null  
+ MAIL_PASSWORD=null  
+ MAIL_ENCRYPTION=null  
+ MAIL_FROM_ADDRESS="coret@example.com"  
+ MAIL_FROM_NAME="Coret"  
  
 以下のコードを.envファイルの一番下に追記する  
 ・注意  
-OPENAI_API_KEYを指定してください。publicリポジトリにはchatgptのAPIkeyを指定できないためです。 
+OPENAI_API_KEYを指定してください。publicリポジトリにはchatgptのAPIkeyを指定できないため、あなたのkeyを設定する必要があります。 
 OPENAI_API_KEY="あなたのopenapikeyを指定"  
-ターミナルで以下のコマンドを実行するcomposer installphp artisan key:generatecomposer require guzzlehttp/guzzle  
+ターミナルで以下のコマンドを実行する  
+composer install  
+php artisan key:generatecomposer require guzzlehttp/guzzle   
+
 
 データベースの作成  
 ターミナルで以下のコマンドを実行するphp artisan migrate --seed  
