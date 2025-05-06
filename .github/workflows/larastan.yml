@@ -1,0 +1,58 @@
+name: Larastan Static Analysis
+
+on:
+  pull_request:
+
+jobs:
+  larastan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: PHP をセットアップ
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo, pdo_mysql
+          coverage: none
+
+      - name: Composer キャッシュを設定
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: 依存関係をインストール
+        working-directory: ./src
+        run: composer install --prefer-dist --no-progress
+
+      - name: Larastan（PHPStan）を実行
+        working-directory: ./src
+        run: composer analyze
+
+  pint:
+    name: Laravel Pint (Code Formatting)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: PHP をセットアップ
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: 依存関係をインストール
+        working-directory: ./src
+        run: composer install --prefer-dist --no-progress
+
+      - name: Laravel Pint を実行（フォーマットチェック）
+        working-directory: ./src
+        run: ./vendor/bin/pint --test
+        
