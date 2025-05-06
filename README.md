@@ -5,8 +5,16 @@
 **アプリケーションのイメージ**  
  - 企業情報/管理者情報登録  
 事前に企業や管理者が情報を登録しておくことで、原因を予想する時や施策の案を提示する時に、より角度の高い情報を提供することができる。 
- ![企業登録](./images/company.png)   
- ![管理者登録](./images/admin.png)   
+<table>
+      <tr>
+        <td align="center">
+          <img src="./images/company.png" alt="企業登録" width="100%">
+        </td>
+        <td align="center">
+          <img src="./images/admin.png" alt="管理者登録" width="100%">
+        </td>
+      </tr>
+    </table>  
 
  - ホーム画面  
  全体スコア・スコアの高低と前回比の大小に基づいたスコアマップ・項目ごとのスコアと前回比・AIによる原因予想を見ることができる。散布図形式でのグラフやAIでの情報の提示などを用いて、多くの情報を提示する中でも管理者が適切な情報を選べるようにした。  
@@ -14,16 +22,12 @@
   <tr>
     <td align="center">
       <img src="./images/top_home.png" alt="スコア表示" width="100%">
-      <br>
-      <em>スコア表示</em>
     </td>
     <td align="center">
       <img src="./images/bottom_home.png" alt="因果推論" width="100%">
-      <br>
-      <em>因果推論</em>
     </td>
   </tr>
-</table>
+</table>  
 
  - 施策立案画面  
  選択した項目・原因に対して、事前に登録した情報やアンケートのデータをもとに適切であると考えられる施策をAIが提案する。また、チャット機能で管理者自身の部署に応じた施策になるように変更を加え、概要を記入して保存することができる。  
@@ -31,13 +35,29 @@
 
  - 施策詳細画面  
  施策の概要の確認とタスク管理をすることができる。タスクカードの移動などで視覚的にもタスクの管理がしやすい他、設定したタスクの期限に合わせてリマインド機能も搭載し、管理者が施策を実行しやすいようにサポートする。  
-![施策一覧](./images/measure_index.png)   
-![施策詳細](./images/measure_show.png)  
+<table>
+      <tr>
+        <td align="center">
+          <img src="./images/measure_index.png" alt="施策一覧" width="100%">
+        </td>
+        <td align="center">
+          <img src="./images/measure_show.png" alt="施策詳細" width="100%">
+        </td>
+      </tr>
+    </table>  
 
  - アンケート回答画面  
- アンケートの対象者である従業員が本音で、積極的に回答できるように、アンケートの5択での実施のほか、導入画面・設問のテキストの工夫、プログレスバーの設置などを施している。
- ![サーベイ](./images/survey.png)   
-![組織選択](./images/survey_select.png)  
+ アンケートの対象者である従業員が本音で、積極的に回答できるように、アンケートの5択での実施のほか、導入画面・設問のテキストの工夫、プログレスバーの設置などを施している。  
+<table>
+      <tr>
+        <td align="center">
+          <img src="./images/survey.png" alt="サーベイ" width="100%">
+        </td>
+        <td align="center">
+          <img src="./images/survey_select.png" alt="組織選択" width="100%">
+        </td>
+      </tr>
+    </table>
 
 
  **環境構築**  
