@@ -15,14 +15,19 @@
  - アンケート回答画面  
  アンケートの対象者である従業員が本音で、積極的に回答できるように、アンケートの5択での実施のほか、導入画面・設問のテキストの工夫、プログレスバーの設置などを施している。
 
- 環境構築
+
+ 環境構築  
+ **macOS 専用アプリケーション**  
+ このソフトウェアは現在 macOS 環境のみに対応しています。他のオペレーティングシステム（Windows, Linux等）では動作しませんのでご注意ください。  
+
+
 Laravel インストール方法  
 docker compose up -d (コンテナをたてる)  
 docker compose exec app sh (appコンテナに入る)  
 
 env.ファイルの追加と書き換え  
 .env.exampleをコピーして複製  
-.envにファイル名を変更  
+cp .env.example .env  
 src > .env の内容を以下のように書き換える    
  DB_CONNECTION=mysql  
  DB_HOST=mysql  
@@ -43,15 +48,17 @@ src > .env の内容を以下のように書き換える
  
 以下のコードを.envファイルの一番下に追記する  
 ・注意  
-OPENAI_API_KEYを指定してください。publicリポジトリにはchatgptのAPIkeyを指定できないため、あなたのkeyを設定する必要があります。 
+OPENAI_API_KEYを指定してください。publicリポジトリにはchatgptのAPIkeyを指定できないため、あなたのkeyを設定する必要があります。  
 OPENAI_API_KEY="あなたのopenapikeyを指定"  
 ターミナルで以下のコマンドを実行する  
 composer install  
-php artisan key:generatecomposer require guzzlehttp/guzzle   
+php artisan key:generate  
+composer require guzzlehttp/guzzle   
 
 
 データベースの作成  
-ターミナルで以下のコマンドを実行するphp artisan migrate --seed  
+ターミナルで以下のコマンドを実行する  
+php artisan migrate --seed  
 
 フロントを見るための環境の構築  
 exitして以下のコマンドを実行する  
@@ -62,9 +69,12 @@ npm run dev
 
 サイトの操作手順  
 管理者が使用する画面  
-URL（http://localhost/login）にアクセスし、ログインする。ログイン情報は下記。  
+URL（http://localhost/login）  
+にアクセスし、ログインする。ログイン情報は下記。  
  - メールアドレス test@example.com  
  - パスワード password  
+
+
 ホーム画面  
 アンケート項目一覧の中から1つ選択する→画面右側に項目の詳細（原因と過去の施策）が表示される  
 「施策の立案」ボタンをクリック→施策立案画面に遷移  
@@ -80,7 +90,8 @@ URL（http://localhost/login）にアクセスし、ログインする。ログ�
 
 
 企業の情報を登録する画面  
-URL（http://localhost/company/register/step1）にアクセス  
+URL（http://localhost/company/register/step1）  
+にアクセス  
  以下の企業情報を登録する  
 会社名/従業員数/事業年数/昇給・評価の頻度/給与体系の透明性/評価制度の種類/組織構造（部署・課・係など）  
    ➡登録が完了したら企業固有の「企業コード（4桁の数字）」が発行される  
@@ -95,6 +106,7 @@ URL（http://localhost/company/register/step1）にアクセス
  入力して「ログイン」ボタンをクリック→ホーム画面に遷移  
 
 アンケート回答画面  
-URL（http://localhost/survey/1）にアクセス  
+URL（http://localhost/survey/1）  
+にアクセス  
 「はじめる」ボタンをクリック→情報を入力し「回答画面へ」をクリック→アンケート回答画面へ遷移  
 →アンケート16問に回答して「送信」ボタンをクリック→アンケート完了画面へ遷移  
